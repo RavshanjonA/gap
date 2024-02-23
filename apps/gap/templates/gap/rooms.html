@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} Rooms {% endblock %}
+
+{% block body %}
+    <h3>Room List</h3>
+    {% for room in rooms %}
+     <a href="{% url 'gap:room' room.pk %}"> {{ room }}</a> <br>
+    {% endfor %}
+{% endblock %}

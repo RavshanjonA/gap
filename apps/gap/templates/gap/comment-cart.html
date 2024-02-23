@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ opinon.title }}.</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ opinon.author }}</h6>
+        <p class="card-text">{{ opinon.body }}.</p>
+        <a href="#" class="card-link">Comments</a>
+        <a href="{% url 'gap:opinion-like' opinon.pk %}" class="card-link"><i class="fa-regular fa-heart"></i> <i class="fa-solid fa-heart"></i></a>
+    </div>
+</div>
