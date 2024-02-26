@@ -1,5 +1,7 @@
-## opinion detailda like dislike ni alohida style da chiqarish
-## user login va register ni yozish: birinchi login-page ochilsin, login-pae register link bo'lishi kerak
-## user login va register uchun test yozish.
-## opinion list uchun test yozing.
-## websocketni o'rganib chiqish.
+## 1.opinion create view yozish
+
+## 2.comment create view yozish
+## 3.commentga like bosish va styleni togrilash
+## 4. opinion create uchun [ckeditor](https://django-ckeditor.readthedocs.io/en/latest/) foydalanish
+
+## ixtiyoriy: [mptt](https://django-mptt.readthedocs.io/en/latest/) ni comments uchun qo'llash

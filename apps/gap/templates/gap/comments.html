@@ -1,18 +1,55 @@
 {% extends 'base.html' %}
+{% load check_opinion_like %}
 {% block body %}
-    {% include 'gap/comment-cart.html' %}
+    <div class="row">
+        {% include 'gap/comment-cart.html' %}
+    </div>
 
-    {% for comment in comments %}
-        <div class="card">
-            <div class="card-header">
-                {{ comment.author }}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Like {{ comment.like_count }}</h5>
-                <p class="card-text">{{ comment.body }}</p>
-                <a href="#" class="btn btn-primary">Like</a>
-            </div>
-        </div>
-    {% endfor %}
 
+    <div class="row ms-2">
+        <form action="" class="form-control col-6 " method="post">
+            <div class="row p-2">
+                <textarea name="" id="" cols="30" rows="4" class=" form-control mb-1"
+                          placeholder="enter comment here "></textarea>
+                {#                <text type="text" class="form-control" placeholder="enter comment here col-10">#}
+                <button type="submit" class="btn btn-secondary  ">Send</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        {% for comment in comments %}
+            <div class="card mt-2 col-8">
+                <div class="card-header">
+                    {{ comment.author }}
+                </div>
+                <div class="card-body ">
+                    <h5 class="card-title">{{ comment.body }}</h5>
+                    <p class="card-text"></p>
+                    <a href="{% url 'gap:opinion-like' opinion.pk %}" class="card-link"><i
+                            class="fa-regular fa-heart"></i>
+                        <i
+                                class="fa-solid fa-heart"></i></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {{ opinion.id|json_script:"json-opinion_id" }}
+    {{ request.user.username|json_script:"json-username" }}
+    <script>
+
+        console.log('It is working')
+
+        const opinion_id = JSON.parse(document.getElementById("json-opinion_id").textContent)
+        const username = JSON.parse(document.getElementById("json-username").textContent)
+        console.log(opinion_id)
+        console.log(username)
+        const socket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/gap/room/'
+            + opinion_id
+            + '/'
+        )
+
+    </script>
 {% endblock %}

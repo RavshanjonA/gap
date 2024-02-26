@@ -1,3 +1,4 @@
 Django==5.0.2
 Pillow==10.2.0
 crispy-bootstrap4==2023.1
+channels==4.0.0

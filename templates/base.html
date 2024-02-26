@@ -27,10 +27,10 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'gap:rooms' %}">Rooms</a>
                     </li>
                     <li>
-                        <form action="#" method="get" class="d-flex ms-4">
+                        <form action="{% url 'gap:search-opinion' %}" method="get" class="d-flex ms-4">
                             {% csrf_token %}
                             <input type="text" class="form-control" name="q" value="{{ param }}"
-                                   placeholder="Search book">
+                                   placeholder="Search opinion">
                             <button type="submit" class="btn btn-secondary">Search</button>
                         </form>
                     </li>

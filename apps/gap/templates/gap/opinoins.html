@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load check_opinion_like %}
 {% block body %}
-    {% for opinon in opinions %}
+    {% for opinion in opinions %}
         {% include 'gap/comment-cart.html' %}
 
     {% endfor %}
